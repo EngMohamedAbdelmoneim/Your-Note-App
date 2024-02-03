@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "492041428532",
+    "project_id": "final-tasks-app",
+    "storage_bucket": "final-tasks-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492041428532:android:bc1a8ad9c4a49ccc0d3461",
+        "android_client_info": {
+          "package_name": "com.example.final_tasks_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB919mpf2lDNamdO49kBDrznE8YFi_Du2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492041428532:android:cafc148e82293df20d3461",
+        "android_client_info": {
+          "package_name": "com.example.tasksapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB919mpf2lDNamdO49kBDrznE8YFi_Du2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

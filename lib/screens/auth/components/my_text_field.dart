@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 class MyTextField extends StatelessWidget {
 	final TextEditingController controller;
@@ -45,11 +44,11 @@ class MyTextField extends StatelessWidget {
 				prefixIcon: prefixIcon,
 				enabledBorder: OutlineInputBorder(
 					borderRadius: BorderRadius.circular(10),
-					borderSide:  BorderSide(width:2 ,color: Colors.white),
+					borderSide:  const BorderSide(width:2 ,color: Colors.white),
 				),
 				focusedBorder: OutlineInputBorder(
 					borderRadius: BorderRadius.circular(10),
-					borderSide: BorderSide(width:2,color: Colors.white),
+					borderSide: const BorderSide(width:2,color: Colors.white),
 				),
 				fillColor: Colors.white,
 				filled: true,

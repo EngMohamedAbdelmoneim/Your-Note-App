@@ -16,7 +16,7 @@ class AppChangeBottomNavBar extends TaskState {}
 class TasksLoaded extends TaskState {
   final List<TaskModel> tasks;
 
-  TasksLoaded(this.tasks);
+  const TasksLoaded(this.tasks);
 
   @override
   List<Object> get props => [tasks];
@@ -24,7 +24,7 @@ class TasksLoaded extends TaskState {
 class DoneTasksLoaded extends TaskState {
   final List<TaskModel> tasks;
 
-  DoneTasksLoaded(this.tasks);
+  const DoneTasksLoaded(this.tasks);
 
   @override
   List<Object> get props => [tasks];
@@ -32,7 +32,7 @@ class DoneTasksLoaded extends TaskState {
 class ImportantTasksLoaded extends TaskState {
   final List<TaskModel> tasks;
 
-  ImportantTasksLoaded(this.tasks);
+  const ImportantTasksLoaded(this.tasks);
 
   @override
   List<Object> get props => [tasks];
@@ -42,7 +42,7 @@ class ImportantTasksLoaded extends TaskState {
 class TasksError extends TaskState {
   final String message;
 
-  TasksError(this.message);
+  const TasksError(this.message);
 
   @override
   List<Object> get props => [message];
@@ -50,7 +50,7 @@ class TasksError extends TaskState {
 class EmptyTasksMessage extends TaskState {
   final String message;
 
-  EmptyTasksMessage(this.message);
+  const EmptyTasksMessage(this.message);
 
   @override
   List<Object> get props => [message];

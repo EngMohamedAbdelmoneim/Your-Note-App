@@ -5,6 +5,7 @@ class TaskModel {
   String userId;
   final String title;
   final String description;
+  final String color;
   final DateTime date;
   final bool isDone;
   final bool isImportant;
@@ -15,6 +16,7 @@ class TaskModel {
     required this.userId,
     required this.title,
     required this.description,
+    required this.color,
     required this.date,
     required this.isDone,
     required this.isImportant
@@ -26,6 +28,7 @@ class TaskModel {
     required String userId,
     required this.title,
     required this.description,
+    required this.color,
     required this.date,
     required this.isDone,
     required this.isImportant
@@ -38,6 +41,7 @@ class TaskModel {
       'userId': userId,
       'title': title,
       'description': description,
+      'color': color,
       'isDone': isDone,
       'isImportant': isImportant,
       'date': date,
@@ -51,6 +55,7 @@ class TaskModel {
       userId: map['userId'],
       title: map['title'],
       description: map['description'],
+      color: map['color'],
       isDone: map['isDone'],
       isImportant: map['isImportant'],
       date: (map['date'] as Timestamp).toDate(),
@@ -62,6 +67,7 @@ class TaskModel {
     String? userId,
     String? title,
     String? description,
+    String? color,
     bool? isDone,
     bool? isImportant,
     DateTime? date,
@@ -71,6 +77,7 @@ class TaskModel {
         userId: userId ?? this.userId,
         title: title ?? this.title,
         description: description ?? this.description,
+        color: color ?? this.color,
         isDone: isDone ?? this.isDone,
         date: date ?? this.date,
         isImportant : isImportant ?? this.isImportant

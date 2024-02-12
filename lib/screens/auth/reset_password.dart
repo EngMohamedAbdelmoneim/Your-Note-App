@@ -106,7 +106,7 @@ class ResetScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Text('Send'),
+                        child: const Text('Send'),
                       ),
                     ),
                   ),

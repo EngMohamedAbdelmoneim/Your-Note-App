@@ -25,18 +25,13 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
   bool gridIcon = false;
   bool isGridorList = true;
   bool isIndexChanged = false;
-  List<Widget> Task_Screens = [
-    Search(),
+  List<Widget> taskScreens = [
+    const Search(),
     MyTasks(),
     ImportantScreen(),
     DoneTasksPage(),
   ];
-  List<Widget> Appbars = [
-    Search(),
-    MyTasks(),
-    ImportantScreen(),
-    DoneTasksPage(),
-  ];
+
   List<String> titles = [
     'Search',
     'My Tasks',
@@ -85,6 +80,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<LoadTasks>((event, emit) async {
       try {
         var tasks = await taskRepository.getTasks(userId);
+        tasks.sort((b, a) => a.date.compareTo(b.date));
         tasks = tasks.where((task) => !task.isDone).toList();
         if(tasks.isEmpty){
           emit(EmptyTasksMessage("No Data"));
@@ -98,9 +94,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
     on<AddTask>((event, emit) async {
       try {
         event.task.userId = userId;
-        print( event.task.userId);// Set the user ID for the task
         await taskRepository.addTask(event.task);
-        // Reload tasks
       } catch (e) {
         emit(TasksError("Error adding task in Id: ${event.task.userId}"));
       }
@@ -139,6 +133,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
           event.taskId,
           title: event.title,
           description: event.description,
+            color: event.color,
           isDone: event.isDone,
           isImportant : event.isImportant,
           date: event.date

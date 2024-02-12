@@ -2,7 +2,6 @@ import 'package:final_tasks_app/screens/home/user_screens/task_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:tasks_repository/tasks_repository.dart';
 
@@ -35,36 +34,37 @@ class Search extends StatelessWidget {
                         onChanged: (query) {
                           taskBloc.add(SearchTasks(query));
                         },
-                        style: const TextStyle(color: Colors.white),
-                        cursorColor: Colors.white,
+                        style:  TextStyle(color: dark),
+                        cursorColor: dark,
                         decoration: InputDecoration(
-                          suffixIcon: const Padding(
+                          suffixIcon:  Padding(
                             padding: EdgeInsets.zero,
                             child: Icon(
                               Icons.search_rounded,
-                              color: Colors.white,
-                              size: 20,
+                              color: dark,
+                              size: 26,
+                              weight: 10,
                             ),
                           ),
                           filled: true,
-                          fillColor: HexColor("0000FF"),
+                          fillColor:orange,
                           hintText: "Search",
-                          hintStyle: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                          labelStyle: const TextStyle(color: Colors.white),
+                          hintStyle:  TextStyle(
+                              color: dark, fontWeight: FontWeight.bold),
+                          labelStyle:  TextStyle(color: dark),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(Radius.circular(10)),
-                            borderSide: BorderSide(width: 3, color: HexColor("0000FF")),
+                            borderSide: BorderSide(width: 3, color: yellow),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: const BorderRadius.all(Radius.circular(10)),
-                            borderSide: BorderSide(width: 3, color: HexColor("0000FF")),
+                            borderSide: BorderSide(width: 3, color:orange),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all( 8.0),
+                      padding: const EdgeInsets.symmetric( vertical: 8.0),
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
@@ -89,13 +89,13 @@ class Search extends StatelessWidget {
                                           taskTitle: task.title,
                                           taskDescription: task.description,
                                           taskDate: task.date,
-                                          id: task.id),
+                                          id: task.id, taskColor: task.color,),
                                     ),
                                   ),
                                 );
                               },
                               child: Card(
-                                color: HexColor("0000FF"),
+                                color: orange,
                                 elevation: 1.0,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -110,6 +110,7 @@ class Search extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Column(
+                                            mainAxisSize: MainAxisSize.min,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
@@ -118,21 +119,24 @@ class Search extends StatelessWidget {
                                                     horizontal: 3.0),
                                                 child: Text(
                                                   task.title,
-                                                  style: const TextStyle(
+                                                  style:  TextStyle(
                                                     fontSize: 16.0,
-                                                    fontWeight: FontWeight.bold,color: Colors.white
+                                                    fontWeight: FontWeight.bold,color: dark
                                                   ),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.symmetric(
                                                     horizontal: 3.0),
-                                                child: Text(
-                                                  task.description,
-                                                  maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
-                                                  style: const TextStyle(
-                                                    fontSize: 14.0,color: Colors.white
+                                                child: SizedBox(
+                                                  width: MediaQuery.of(context).size.width*0.6,
+                                                  child: Text(
+                                                    task.description,
+                                                    maxLines: 1,
+                                                    overflow: TextOverflow.ellipsis,
+                                                    style:  TextStyle(
+                                                      fontSize: 14.0,color: dark
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -149,15 +153,15 @@ class Search extends StatelessWidget {
                                                 child: Text(
                                                   DateFormat.yMd()
                                                       .format(task.date),
-                                                  style: const TextStyle(
-                                                      fontSize: 12.0,color: Colors.white),
+                                                  style:  TextStyle(
+                                                      fontSize: 12.0,color: dark),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.all(2.0),
                                                 child: Text(
                                                   DateFormat.Hm().format(task.date),
-                                                  style: const TextStyle(fontSize: 12.0,color: Colors.white),
+                                                  style:  TextStyle(fontSize: 12.0,color: dark),
                                                 ),
                                               ),
                                             ],

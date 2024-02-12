@@ -53,6 +53,7 @@ dependencies:
   random_color:
   salomon_bottom_bar:
   gradient_widgets:
+  toggle_switch:
   conditional_builder_null_safety:
   dropdown_button2:
   intl:
@@ -86,6 +87,9 @@ flutter:
    - assets/icons/Logo in.svg
    - assets/icons/Note logo out.svg
    - assets/icons/Small logo.svg
+   - assets/icons/NoteBig.svg
+   - assets/icons/NoteBigOut.svg
+   - assets/icons/SmallNote.svg
 
 
 

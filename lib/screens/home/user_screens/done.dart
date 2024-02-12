@@ -3,7 +3,6 @@ import 'package:final_tasks_app/screens/home/user_screens/task_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:tasks_repository/tasks_repository.dart';
 
@@ -41,6 +40,7 @@ class DoneTasksPage extends StatelessWidget {
                                         taskRepository,
                                       ),
                                   child: TaskDetails(
+                                      taskColor: task.color,
                                       taskTitle: task.title,
                                       taskDescription: task.description,
                                       taskDate: task.date,
@@ -51,7 +51,11 @@ class DoneTasksPage extends StatelessWidget {
                         );
                       },
                       child: Card(
-                        color: Colors.white,
+                        shape:  RoundedRectangleBorder(
+                          side: BorderSide(color: green,width: 3),
+                            borderRadius: const BorderRadius.all(Radius.circular(10.0))),
+
+                        color: green,
                         elevation: 2.0,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -109,32 +113,40 @@ class DoneTasksPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   const SizedBox(width: 15,),
-                                  CircleAvatar(
-                                    radius: 20,
-                                    backgroundColor: Colors.red.shade100,
-                                    child: IconButton(
-                                      color: Colors.red,
-                                      onPressed: () {
-                                        BlocProvider.of<TaskBloc>(context)
-                                            .add(DeleteDoneTask(task.id));
-
-                                      },
-                                      icon: const Icon(Icons.delete),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: InkWell(
+                                        child:  Padding(
+                                          padding:const EdgeInsets.all(5),
+                                          child: Icon(Icons.delete,size: 28,color: dark,),
+                                        ),
+                                        onTap: () {
+                                          BlocProvider.of<TaskBloc>(context)
+                                              .add(DeleteDoneTask(task.id));
+                                        },
+                                      ),
                                     ),
                                   ),
 
-                                  Checkbox(
-                                    activeColor: Colors.greenAccent.shade200,
-                                    checkColor: Colors.green,
-                                    value: task.isDone,
-                                    onChanged: (value) {
-                                      taskBloc.add(UpdateDoneTask(
-                                        task.date,
-                                        taskId: task.id,
-                                        isDone: value!,
-                                      ));
-                                      taskBloc.add(LoadDoneTasks());
-                                    },
+                                  Transform.scale(
+                                    scale: 1.25,
+                                    child: Checkbox(
+                                      shape: const CircleBorder(),
+                                      side: BorderSide(color:Colors.greenAccent.shade200,width: 10 ),
+                                      activeColor: Colors.greenAccent.shade200,
+                                      checkColor: Colors.green,
+                                      value: task.isDone,
+                                      onChanged: (value) {
+                                        taskBloc.add(UpdateDoneTask(
+                                          task.date,
+                                          taskId: task.id,
+                                          isDone: value!,
+                                        ));
+                                        taskBloc.add(LoadDoneTasks());
+                                      },
+                                    ),
                                   ),
 
                                 ],

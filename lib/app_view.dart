@@ -11,7 +11,6 @@ import 'package:gradient_widgets/gradient_widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tasks_repository/tasks_repository.dart';
-import 'Style/colors.dart';
 import 'blocs/authentication_bloc/authentication_bloc.dart';
 import 'blocs/sign_in_bloc/sign_in_bloc.dart';
 
@@ -97,7 +96,7 @@ class MyAppView extends StatelessWidget {
               BlocProvider(
                 create: (context) => TaskBloc(state.user!.uid, repository),
               )
-            ], child: MyHomePage());
+            ], child: const MyHomePage());
           } else {
             return const WelcomeScreen();
           }

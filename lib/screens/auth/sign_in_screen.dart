@@ -11,7 +11,6 @@ import 'package:hexcolor/hexcolor.dart';
 import '../../app_view.dart';
 import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
-import '../home/home_screen.dart';
 import 'components/my_text_field.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -272,7 +271,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                                 )));
                                       },
                                       style: TextButton.styleFrom(
-                                        padding: EdgeInsets.all(0),
+                                        padding: const EdgeInsets.all(0),
                                       ),
                                       child: Text(
                                         "SignUp",

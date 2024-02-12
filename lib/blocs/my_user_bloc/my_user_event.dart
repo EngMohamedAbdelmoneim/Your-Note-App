@@ -31,7 +31,7 @@ class ChangeIndexColor extends TaskEvent {}
 class AddTask extends TaskEvent {
   final TaskModel task;
 
-  AddTask(this.task);
+  const AddTask(this.task);
 
   @override
   List<Object> get props => [task];
@@ -39,7 +39,7 @@ class AddTask extends TaskEvent {
 class DeleteTask extends TaskEvent {
   final String taskId;
 
-  DeleteTask(this.taskId);
+  const DeleteTask(this.taskId);
 
   @override
   List<Object> get props => [taskId];
@@ -47,7 +47,7 @@ class DeleteTask extends TaskEvent {
 class DeleteDoneTask extends TaskEvent {
   final String taskId;
 
-  DeleteDoneTask(this.taskId);
+  const DeleteDoneTask(this.taskId);
 
   @override
   List<Object> get props => [taskId];
@@ -55,7 +55,7 @@ class DeleteDoneTask extends TaskEvent {
 class DeleteImportantTask extends TaskEvent {
   final String taskId;
 
-  DeleteImportantTask(this.taskId);
+  const DeleteImportantTask(this.taskId);
 
   @override
   List<Object> get props => [taskId];
@@ -65,20 +65,22 @@ class UpdateTask extends TaskEvent {
   final String taskId;
   final String title;
   final String description;
+  final String color;
   final DateTime date;
   final bool isDone;
   final bool isImportant;
 
-  UpdateTask(this.date, {
+  const UpdateTask(this.date, {
     required this.taskId,
     required this.title,
     required this.description,
+    required this.color,
     required this.isDone,
     required this.isImportant,
   });
 
   @override
-  List<Object> get props => [taskId, title, description, date,isDone,isImportant];
+  List<Object> get props => [taskId, title, description, color,date,isDone,isImportant];
 }
 
 class UpdateDoneTask extends TaskEvent {
@@ -86,7 +88,7 @@ class UpdateDoneTask extends TaskEvent {
   final DateTime date;
   final bool isDone;
 
-  UpdateDoneTask(this.date, {
+  const UpdateDoneTask(this.date, {
     required this.taskId,
     required this.isDone,
   });
@@ -123,3 +125,5 @@ class SearchTasks extends TaskEvent {
   @override
   List<Object> get props => [query];
 }
+
+

@@ -12,7 +12,6 @@ import '../../app_view.dart';
 import '../../blocs/authentication_bloc/authentication_bloc.dart';
 import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
-import '../home/home_screen.dart';
 import 'components/my_text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -395,7 +394,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           )));
 
                                 },
-                                style: TextButton.styleFrom(padding: EdgeInsets.all(0),
+                                style: TextButton.styleFrom(padding: const EdgeInsets.all(0),
                                 ),
                                 child: Text(
                                   "SignIn",

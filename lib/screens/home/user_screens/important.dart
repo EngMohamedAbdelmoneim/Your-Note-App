@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:intl/intl.dart';
 import 'package:tasks_repository/tasks_repository.dart';
 
@@ -45,6 +44,7 @@ class ImportantScreen extends StatelessWidget {
                                 taskRepository,
                               ),
                           child: TaskDetails(
+                              taskColor: task.color,
                               taskTitle: task.title,
                               taskDescription: task.description,
                               taskDate: task.date,
@@ -55,7 +55,11 @@ class ImportantScreen extends StatelessWidget {
                 );
               },
               child: Card(
-                color: Colors.white,
+                color:purple,
+                shape:  RoundedRectangleBorder(
+                    side: BorderSide(color: purple,width: 3),
+                    borderRadius: const BorderRadius.all(Radius.circular(10.0))),
+
                 elevation: 2.0,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -69,13 +73,15 @@ class ImportantScreen extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 3.0), child: Text(
-                            task.title,
-                            style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
+                                horizontal: 3.0),
+                            child: Text(
+                              task.title,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: dark,
+                              ),
                             ),
-                          ),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -84,24 +90,31 @@ class ImportantScreen extends StatelessWidget {
                               task.description,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 14.0,),
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                color: dark2,
+                              ),
                             ),
                           ),
-
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 3.0),
                             child: Text(
                               DateFormat.yMd().format(task.date),
-                              style: const TextStyle(fontSize: 12.0),
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: dark2,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2.0),
                             child: Text(
                               DateFormat.Hm().format(task.date),
-                              style: const TextStyle(fontSize: 12.0),
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: dark2,
+                              ),
                             ),
                           ),
                         ],
@@ -112,51 +125,67 @@ class ImportantScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const SizedBox(width: 15,),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: Colors.red.shade100,
-                            child: IconButton(
-                              color: Colors.red,
-                              onPressed: () {
-                                BlocProvider.of<TaskBloc>(context)
-                                    .add(DeleteImportantTask(task.id));
-
-                              },
-                              icon: const Icon(Icons.delete),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                child:  Padding(
+                                  padding:const EdgeInsets.all(5),
+                                  child: Icon(Icons.delete,size: 28,color: dark,),
+                                ),
+                                onTap: () {
+                                  BlocProvider.of<TaskBloc>(context)
+                                      .add(DeleteImportantTask(task.id));
+                                },
+                              ),
                             ),
                           ),
-
-                          Checkbox(
-                            activeColor: Colors.greenAccent.shade200,
-                            checkColor: Colors.green,
-                            value: task.isDone,
-                            onChanged: (value) {
-                              taskBloc.add(UpdateImportantTask(
-                                task.date,
-                                taskId: task.id,
-                                isDone: value!,
-                                isImportant: task.isImportant
-                              ));
-                              taskBloc.add(LoadImportantTasks());
-                            },
-                          ),
-                          CircleAvatar(
-                            radius: 20,
-                            backgroundColor: HexColor("00CBFF"),
-                            child: IconButton(
-                              color:  HexColor("1F1F29"),
-                              onPressed: () {
-                                BlocProvider.of<TaskBloc>(context).add(UpdateImportantTask(
-                                    task.date,
-                                    taskId: task.id,
-                                    isDone: task.isDone, isImportant: !task.isImportant
+                          Transform.scale(
+                            scale: 1.25,
+                            child: Checkbox(
+                              shape: const CircleBorder(),
+                              activeColor:
+                              Colors.greenAccent.shade200,
+                              checkColor: Colors.green,
+                              side: BorderSide(
+                                width: 2,
+                                color: dark,
+                              ),
+                              value: task.isDone,
+                              onChanged: (value) {
+                                taskBloc.add(UpdateImportantTask(
+                                  task.date,
+                                  taskId: task.id,
+                                  isDone: value!,
+                                  isImportant: task.isImportant,
                                 ));
                               },
-                              icon:  Icon(Icons.bookmark_remove_rounded, color:  HexColor("1F1F29"),),
                             ),
                           ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                child:  Padding(
+                                  padding: const EdgeInsets.all(5),
+                                  child: Icon(Icons.bookmark_remove_rounded,size: 28,color: dark,),
+                                ),
+                                onTap: () {
+                                  BlocProvider.of<TaskBloc>(context).add(
+                                      UpdateImportantTask(task.date,
+                                          taskId: task.id,
+                                          isImportant: false,
+                                          isDone: task.isDone));
 
+                                },
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],

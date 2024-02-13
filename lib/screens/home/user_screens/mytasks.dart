@@ -73,7 +73,7 @@ class MyTasks extends StatelessWidget {
                                           horizontal: 3.0),
                                       child: Text(
                                         task.title,
-                                        style: TextStyle(
+                                        style: GoogleFonts.k2d(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold,
                                           color: dark,
@@ -87,8 +87,18 @@ class MyTasks extends StatelessWidget {
                                         task.description,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: GoogleFonts.k2d(
                                           fontSize: 14.0,
+                                          color: dark2,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(
+                                        DateFormat.jm().format(task.date),
+                                        style: GoogleFonts.k2d(
+                                          fontSize: 12.0,
                                           color: dark2,
                                         ),
                                       ),
@@ -97,23 +107,14 @@ class MyTasks extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 3.0),
                                       child: Text(
-                                        DateFormat.yMd().format(task.date),
-                                        style: TextStyle(
+                                        DateFormat.MEd().format(task.date),
+                                        style: GoogleFonts.k2d(
                                           fontSize: 12.0,
                                           color: dark2,
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(
-                                        DateFormat.Hm().format(task.date),
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          color: dark2,
-                                        ),
-                                      ),
-                                    ),
+
                                   ],
                                 ),
                                 const SizedBox(
@@ -259,7 +260,7 @@ class MyTasks extends StatelessWidget {
                                           horizontal: 3.0),
                                       child: Text(
                                         task.title,
-                                        style: TextStyle(
+                                        style: GoogleFonts.k2d(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold,
                                           color: dark,
@@ -273,8 +274,18 @@ class MyTasks extends StatelessWidget {
                                         task.description,
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
+                                        style: GoogleFonts.k2d(
                                           fontSize: 14.0,
+                                          color: dark2,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(2.0),
+                                      child: Text(
+                                        DateFormat.jm().format(task.date),
+                                        style: GoogleFonts.k2d(
+                                          fontSize: 12.0,
                                           color: dark2,
                                         ),
                                       ),
@@ -283,23 +294,14 @@ class MyTasks extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 3.0),
                                       child: Text(
-                                        DateFormat.yMd().format(task.date),
-                                        style: TextStyle(
+                                        DateFormat.MEd().format(task.date),
+                                        style: GoogleFonts.k2d(
                                           fontSize: 12.0,
                                           color: dark2,
                                         ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: Text(
-                                        DateFormat.Hm().format(task.date),
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          color: dark2,
-                                        ),
-                                      ),
-                                    ),
+
                                   ],
                                 ),
                                 const SizedBox(

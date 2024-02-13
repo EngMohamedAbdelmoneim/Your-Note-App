@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:final_tasks_app/Style/colors.dart';
 import 'package:final_tasks_app/blocs/my_user_bloc/my_user_bloc.dart';
 import 'package:final_tasks_app/screens/auth/welcome_screen.dart';
 import 'package:final_tasks_app/screens/home/home_screen.dart';
@@ -59,7 +60,7 @@ class MyAppView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                   SvgPicture.asset(
-                    'assets/icons/Note logo out.svg',
+                    'assets/icons/NoteBigOut.svg',
                     height:MediaQuery.of(context).size.width * 0.7,
                     width: MediaQuery.of(context).size.width * 0.7,
                   ),
@@ -104,7 +105,7 @@ class MyAppView extends StatelessWidget {
         splashTransition: SplashTransition.scaleTransition,
         pageTransitionType: PageTransitionType.bottomToTop,
         splashIconSize: double.infinity,
-        backgroundColor: HexColor('#0000FF'),
+        backgroundColor:dark,
       ),
     );
   }

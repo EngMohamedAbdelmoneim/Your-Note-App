@@ -71,7 +71,7 @@ class DoneTasksPage extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 3.0), child: Text(
                                     task.title,
-                                    style: const TextStyle(
+                                    style:  GoogleFonts.k2d(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -84,24 +84,30 @@ class DoneTasksPage extends StatelessWidget {
                                       task.description,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
+                                      style: GoogleFonts.k2d(
                                         fontSize: 14.0,),
                                     ),
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 3.0),
+                                    padding: const EdgeInsets.all(2.0),
                                     child: Text(
-                                      DateFormat.yMd().format(task.date),
-                                      style: const TextStyle(fontSize: 12.0),
+                                      DateFormat.jm().format(task.date),
+                                      style: GoogleFonts.k2d(
+                                        fontSize: 12.0,
+                                        color: dark2,
+                                      ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.all(2.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 3.0),
                                     child: Text(
-                                      DateFormat.Hm().format(task.date),
-                                      style: const TextStyle(fontSize: 12.0),
+                                      DateFormat.MEd().format(task.date),
+                                      style: GoogleFonts.k2d(
+                                        fontSize: 12.0,
+                                        color: dark2,
+                                      ),
                                     ),
                                   ),
                                 ],

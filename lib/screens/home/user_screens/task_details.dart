@@ -118,82 +118,87 @@ class _TaskDetailsState extends State<TaskDetails> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: AppBar().preferredSize.height,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).viewPadding.top,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 1.0),
-                      child: Text(
-                        "Description",
-                        style: GoogleFonts.k2d(
+                SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: AppBar().preferredSize.height,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).viewPadding.top,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 1.0),
+                        child: Text(
+                          "Description",
+                          style: GoogleFonts.k2d(
+                              color: HexColor(widget.taskColor),
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          padding: const EdgeInsets.all(10.0),
+                          height: MediaQuery.of(context).size.height * 0.8,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
                             color: HexColor(widget.taskColor),
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: const EdgeInsets.all(10.0),
-                        height: MediaQuery.of(context).size.height * 0.8,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color: HexColor(widget.taskColor),
-                          border: Border.all(
-                              color: HexColor(widget.taskColor), width: 2),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20.0)),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                widget.taskTitle,
-                                style: TextStyle(
-                                    fontSize: 20,
+                            border: Border.all(
+                                color: HexColor(widget.taskColor), width: 2),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20.0)),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  widget.taskTitle,
+                                  style: GoogleFonts.k2d(
+                                  fontSize: 22,
+                                    fontWeight: FontWeight.w800,
                                     color: dark,
-                                    fontWeight: FontWeight.bold),
+                                  )
+                                  )
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                widget.taskDescription,
-                                style: TextStyle(
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  widget.taskDescription,
+                                  style: GoogleFonts.k2d(
                                   fontSize: 16,
                                   color: dark,
                                 ),
-                                maxLines: 10,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "Task Time: ${DateFormat.Hm().format(widget.taskDate)}",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: dark,
+                                  maxLines: 10,
                                 ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 10),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Last Update:"
+                                      " ${ DateFormat.yMEd().add_jm().format(widget.taskDate)}",
+                                  style: GoogleFonts.k2d(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: dark,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ]),
               floatingActionButton: FloatingActionButton.extended(
@@ -389,7 +394,10 @@ class _TaskDetailsState extends State<TaskDetails> {
                       child: Text(
                         "Update",
                         style:
-                            TextStyle(color: dark, fontWeight: FontWeight.bold),
+                         GoogleFonts.k2d(
+                         fontWeight: FontWeight.w800,
+                        color: dark,
+                      )
                       ),
                     ),
                   ],

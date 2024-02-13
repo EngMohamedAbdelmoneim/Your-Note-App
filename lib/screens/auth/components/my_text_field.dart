@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../Style/colors.dart';
+
 class MyTextField extends StatelessWidget {
 	final TextEditingController controller;
   final String hintText;
@@ -27,7 +29,7 @@ class MyTextField extends StatelessWidget {
 		this.errorMsg,
 		this.onChanged
   });
-	
+
 	@override
 	Widget build(BuildContext context) {
 		return TextFormField(
@@ -42,6 +44,10 @@ class MyTextField extends StatelessWidget {
       decoration: InputDecoration(
 				suffixIcon: suffixIcon,
 				prefixIcon: prefixIcon,
+				errorBorder: OutlineInputBorder(
+					borderRadius: BorderRadius.circular(10),
+			borderSide:  const BorderSide(width:2 ,color: Colors.red),
+		),
 				enabledBorder: OutlineInputBorder(
 					borderRadius: BorderRadius.circular(10),
 					borderSide:  const BorderSide(width:2 ,color: Colors.white),
@@ -53,7 +59,7 @@ class MyTextField extends StatelessWidget {
 				fillColor: Colors.white,
 				filled: true,
 				hintText: hintText,
-				hintStyle: TextStyle(fontSize: 14,color: Colors.black.withOpacity(0.5)),
+				hintStyle: TextStyle(fontSize: 14,color: dark.withOpacity(0.5)),
 				errorText: errorMsg,
 			),
     );

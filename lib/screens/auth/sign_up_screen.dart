@@ -12,6 +12,7 @@ import '../../app_view.dart';
 import '../../blocs/authentication_bloc/authentication_bloc.dart';
 import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'components/bottom_sheet_alert.dart';
 import 'components/my_text_field.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -58,7 +59,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             signUpRequired = true;
           });
         } else if (state is SignUpFailure) {
-          return;
+          setState(() {
+            signUpRequired = false;
+          });
         }
       },
       child: Scaffold(
@@ -86,7 +89,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset(
-                                  'assets/icons/Small logo.svg',
+                                  'assets/icons/SmallNote.svg',
                                   height:MediaQuery.of(context).size.width * 0.3,
                                   width: MediaQuery.of(context).size.width * 0.3,
                                 ),
@@ -117,9 +120,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 keyboardType: TextInputType.name,
                                 validator: (val) {
                                   if (val!.isEmpty) {
-                                    return 'Please fill in this field';
+                                    showSnackBar(context, 'Please fill in this field');
                                   } else if (val.length > 30) {
-                                    return 'Name too long';
+                                      showSnackBar(context, 'Name too long');
                                   }
                                   return null;
                                 }),
@@ -136,11 +139,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                                 validator: (val) {
                                   if (val!.isEmpty) {
-                                    return 'Please fill in this field';
+                                    showSnackBar(context, 'Please fill in this field');
                                   } else if (!RegExp(
-                                          r'^[\w-\.]+@([\w-]+.)+[\w-]{2,4}$')
+                                          r'^[\w-.]+@([\w-]+.)+[\w-]{2,4}$')
                                       .hasMatch(val)) {
-                                    return 'Please enter a valid email';
+                                    showSnackBar(context, 'Please enter a valid email');
                                   }
                                   return null;
                                 }),
@@ -184,7 +187,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     });
                                   }
                                   if (val.contains(RegExp(
-                                      r'^(?=.*?[!@#$&*~`)\%\-(_+=;:,.<>/?"[{\]}\|^])'))) {
+                                      r'^(?=.*?[!@#$&*~`)\\%\-(_+=;:,.<>/?"[{\]}|^])'))) {
                                     setState(() {
                                       containsSpecialChar = true;
                                     });
@@ -216,15 +219,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       }
                                     });
                                   },
-                                  icon: Icon(iconPassword,color: lightPurple,),
+                                  icon: Icon(iconPassword,color: lightPurple.withOpacity(0.8),),
                                 ),
                                 validator: (val) {
                                   if (val!.isEmpty) {
-                                    return 'Please fill in this field';
+                                    showSnackBar(context, 'Please fill in this field');
                                   } else if (!RegExp(
-                                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~`)\%\-(_+=;:,.<>/?"[{\]}\|^]).{8,}$')
+                                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~`)%\-(_+=;:,.<>/?"[{\]}|^]).{8,}$')
                                       .hasMatch(val)) {
-                                    return 'Please enter a valid password';
+                                    showSnackBar(context, 'Please enter a valid password');
                                   }
                                   return null;
                                 }),
@@ -262,9 +265,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   icon: Icon(iconPassword,color: lightPurple),),
                                 validator: (val) {
                                   if (val!.isEmpty) {
-                                    return 'Please fill in this field';
+                                    showSnackBar(context, 'Please fill in this field');
                                   } else if (val != passwordController.text) {
-                                    return 'Please enter a same password';
+                                    showSnackBar(context, 'Please enter a same password');
                                   }
                                   return null;
                                 }),

@@ -51,7 +51,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         height: MediaQuery.of(context).size.width * 0.2,
                       ),
                       SvgPicture.asset(
-                        'assets/icons/Small logo.svg',
+                        'assets/icons/SmallNote.svg',
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.2,
+
                       ),
                       SizedBox(height: MediaQuery.of(context).size.width * 0.1,),
                       RichText(

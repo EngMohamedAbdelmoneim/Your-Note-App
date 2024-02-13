@@ -11,6 +11,7 @@ import 'package:hexcolor/hexcolor.dart';
 import '../../app_view.dart';
 import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
 import '../../blocs/sign_up_bloc/sign_up_bloc.dart';
+import 'components/bottom_sheet_alert.dart';
 import 'components/my_text_field.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -27,7 +28,6 @@ class _SignInScreenState extends State<SignInScreen> {
   bool signInRequired = false;
   IconData iconPassword = Icons.visibility_outlined;
   bool obscurePassword = true;
-  String? _errorMsg;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _SignInScreenState extends State<SignInScreen> {
         } else if (state is SignInFailure) {
           setState(() {
             signInRequired = false;
-            _errorMsg = 'Invalid email or password';
+            showSnackBar(context,state.message.toString());
           });
         }
       },
@@ -82,7 +82,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       SvgPicture.asset(
-                                        'assets/icons/Small logo.svg',
+                                        'assets/icons/SmallNote.svg',
                                         height:MediaQuery.of(context).size.width * 0.3,
                                         width: MediaQuery.of(context).size.width * 0.3,
                                       ),
@@ -129,14 +129,13 @@ class _SignInScreenState extends State<SignInScreen> {
                                         obscureText: false,
                                         keyboardType:
                                             TextInputType.emailAddress,
-                                        errorMsg: _errorMsg,
                                         validator: (val) {
                                           if (val!.isEmpty) {
-                                            return 'Please fill in this field';
+                                             showSnackBar(context,"Please fill in this field");
                                           } else if (!RegExp(
-                                                  r'^[\w-\.]+@([\w-]+.)+[\w-]{2,4}$')
+                                                  r'^[\w-.]+@([\w-]+.)+[\w-]{2,4}$')
                                               .hasMatch(val)) {
-                                            return 'Please enter a valid email';
+                                            showSnackBar(context,"Please enter a valid email");
                                           }
                                           return null;
                                         })),
@@ -150,14 +149,13 @@ class _SignInScreenState extends State<SignInScreen> {
                                     hintText: 'Password',
                                     obscureText: obscurePassword,
                                     keyboardType: TextInputType.visiblePassword,
-                                    errorMsg: _errorMsg,
                                     validator: (val) {
                                       if (val!.isEmpty) {
-                                        return 'Please fill in this field';
+                                        showSnackBar(context,"Please fill in this field");
                                       } else if (!RegExp(
-                                              r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~`)\%\-(_+=;:,.<>/?"[{\]}\|^]).{8,}$')
+                                              r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~`)%\-(_+=;:,.<>/?"[{\]}|^]).{8,}$')
                                           .hasMatch(val)) {
-                                        return 'Please enter a valid password';
+                                        showSnackBar(context,"Please enter a valid Password");
                                       }
                                       return null;
                                     },
@@ -176,7 +174,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                       },
                                       icon: Icon(
                                         iconPassword,
-                                        color:orange,
+                                        color:orange.withOpacity(0.8),
                                       ),
                                     ),
                                   ),

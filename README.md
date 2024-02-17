@@ -30,3 +30,24 @@ User's Notes and Tasks Views:-
 - FireBase
 - Cloud Firestore
 - figma for designing
+- google fonts
+- hexcolor
+- animated splash screen
+- flutter svg
+
+
+## Boilerplate Features:
+
+- Splash
+- Login
+- Home
+- FireBase
+- Database
+
+### Libraries & Tools Used
+
+* [FireBase](https://firebase.google.com/)
+* [HexColor](https://github.com/ggichure/hexcolor)
+* [Figma](https://www.figma.com) (For designing the UI)
+* [Flutter_Bloc](https://github.com/felangel/bloc/tree/master/packages/flutter_bloc) (State Management)
+

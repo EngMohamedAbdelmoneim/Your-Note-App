@@ -28,5 +28,5 @@ User's Notes and Tasks Views:-
 - Bloc
 - Packages
 - FireBase
-- Cloud Firestoe
+- Cloud Firestore
 - figma for designing

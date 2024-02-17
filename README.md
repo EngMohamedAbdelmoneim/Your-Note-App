@@ -1,16 +1,32 @@
-# final_tasks_app
+# Your Note App
 
-A new Flutter project.
+This Your Note App a simple way to organize you task :-
 
-## Getting Started
+![Frame 5](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/93c4468d-ccbd-4066-b1c4-d3387f9f672f)
 
-This project is a starting point for a Flutter application.
+## Description
 
-A few resources to get you started if this is your first Flutter project:
+Your Note App is simple impelement of todo list with creative list design.
+It is build by using flutter , using dart - bloc - firebase - fogma for the design.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## All Screen o the app
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Authentication Views:-
+![Frame 1](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/81d36b76-36a1-4aab-ad91-4faf7ca5c60a)
+
+User's Notes and Tasks Views:-  
+![Frame 2](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/9b95b004-b296-4691-9688-53751b9a3a81)
+
+![Frame 3](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/8611f550-79fa-4cfd-936f-ba3f1d323b2e)
+
+![Frame 4](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/7b7a989f-75a2-45b8-8976-101463b116f1)
+
+### Built with
+
+- Flutter
+- Dart
+- Bloc
+- Packages
+- FireBase
+- Cloud Firestoe
+- figma for designing

@@ -7,7 +7,7 @@ This Your Note App a simple way to organize you task :-
 ## Description
 
 Your Note App is simple impelement of todo list with creative list design.
-It is build by using flutter , using dart - bloc - firebase - fogma for the design.
+It is build by using flutter , using dart - bloc - firebase - figma for the design.
 
 ## All Screen o the app
 

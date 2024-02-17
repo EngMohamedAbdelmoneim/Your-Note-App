@@ -90,7 +90,8 @@ class DoneTasksPage extends StatelessWidget {
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.all(2.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 3.0),
                                     child: Text(
                                       DateFormat.jm().format(task.date),
                                       style: GoogleFonts.k2d(
@@ -174,14 +175,14 @@ class DoneTasksPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.check_circle_outline_rounded,color:green.withOpacity(0.5), size: 100 ,),
-                  Text(state.message,style: GoogleFonts.k2d(
+                  Text("No tasks done yet",style: GoogleFonts.k2d(
                       color:  green.withOpacity(0.5), fontSize: 22, fontWeight: FontWeight.bold),),
                 ],
               ),
             );
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return  Center(
+              child: CircularProgressIndicator(color: green,),
             );
           }
         },

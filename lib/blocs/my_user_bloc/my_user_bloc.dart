@@ -50,7 +50,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       try {
         if (event.query.isEmpty) {
           if(tasks.isEmpty){
-            emit(EmptyTasksMessage("No Data"));
+            emit(const EmptyTasksMessage("No Data"));
           }
           else{
             emit(TasksLoaded(tasks));} // Restore original tasks
@@ -62,19 +62,19 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
           emit(TasksLoaded(filteredTasks));
         }
       } catch (e) {
-        emit(TasksError("Error searching tasks"));
+        emit(const TasksError("Error searching tasks"));
       }
     });
     on<LoadAllTasks>((event, emit) async {
       try {
         var tasks = await taskRepository.getTasks(userId);
         if(tasks.isEmpty){
-          emit(EmptyTasksMessage("No Data"));
+          emit(const EmptyTasksMessage("No Data"));
         }
         else{
           emit(TasksLoaded(tasks));}
       } catch (e) {
-        emit(TasksError("Error loading tasks"));
+        emit(const TasksError("Error loading tasks"));
       }
     });
     on<LoadTasks>((event, emit) async {
@@ -83,12 +83,12 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         tasks.sort((b, a) => a.date.compareTo(b.date));
         tasks = tasks.where((task) => !task.isDone).toList();
         if(tasks.isEmpty){
-          emit(EmptyTasksMessage("No Data"));
+          emit(const EmptyTasksMessage("No Data"));
         }
         else{
         emit(TasksLoaded(tasks));}
       } catch (e) {
-        emit(TasksError("Error loading tasks"));
+        emit(const TasksError("Error loading tasks"));
       }
     });
     on<AddTask>((event, emit) async {
@@ -105,7 +105,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         add(LoadTasks());
 
       } catch (e) {
-        emit(TasksError("Error deleting task"));
+        emit(const TasksError("Error deleting task"));
       }
     });
     on<DeleteDoneTask>((event, emit) async {
@@ -114,7 +114,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         add(LoadDoneTasks());
 
       } catch (e) {
-        emit(TasksError("Error deleting task"));
+        emit(const TasksError("Error deleting task"));
       }
     });
     on<DeleteImportantTask>((event, emit) async {
@@ -123,7 +123,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         add(LoadImportantTasks());
 
       } catch (e) {
-        emit(TasksError("Error deleting task"));
+        emit(const TasksError("Error deleting task"));
       }
     });
 
@@ -140,7 +140,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         );
         add(LoadTasks());
       } catch (e) {
-       emit(TasksError("Error updating task"));
+       emit(const TasksError("Error updating task"));
       }
     });
 
@@ -153,7 +153,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         );
         add(LoadDoneTasks());
       } catch (e) {
-        emit(TasksError("Error updating task"));
+        emit(const TasksError("Error updating task"));
       }
     });
     on<LoadDoneTasks>((event, emit) async {
@@ -161,13 +161,13 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         var doneTasks = await taskRepository.getTasks(userId);
         doneTasks = doneTasks.where((task) => task.isDone).toList();
         if(doneTasks.isEmpty){
-          emit(EmptyTasksMessage("No Data"));
+          emit(const EmptyTasksMessage("No Data"));
         }
         else{
           emit(DoneTasksLoaded(doneTasks));}
         // Reload tasks
       } catch (e) {
-        emit(TasksError("Error loading done tasks"));
+        emit(const TasksError("Error loading done tasks"));
       }
     });
     on<UpdateImportantTask>((event,emit) async{
@@ -180,7 +180,7 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         );
         add(LoadImportantTasks());
       } catch (e) {
-        emit(TasksError("Error updating task"));
+        emit(const TasksError("Error updating task"));
       }
     });
     on<LoadImportantTasks>((event, emit) async {
@@ -188,13 +188,13 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         var importantTasks = await taskRepository.getTasks(userId);
         importantTasks = importantTasks.where((task) => task.isImportant).toList();
         if(importantTasks.isEmpty){
-          emit(EmptyTasksMessage("No Data"));
+          emit(const EmptyTasksMessage("No Data"));
         }
         else{
           emit(ImportantTasksLoaded(importantTasks));}
         // Reload tasks
       } catch (e) {
-        emit(TasksError("Error loading done tasks"));
+        emit(const TasksError("Error loading done tasks"));
       }
     });
 
@@ -204,13 +204,13 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
       var tasks = await taskRepository.getTasks(userId);
       tasks = tasks.where((task) => !task.isDone).toList();
       if(tasks.isEmpty){
-        emit(EmptyTasksMessage("No Data"));
+        emit(const EmptyTasksMessage("No Data"));
       }
       else{
         emit(TasksLoaded(tasks));}
       }
           catch(e) {
-            emit(TasksError("Error loading done tasks"));
+            emit(const TasksError("Error loading done tasks"));
           }
     });
     on<ChangeGridIcon>((event, emit) async {

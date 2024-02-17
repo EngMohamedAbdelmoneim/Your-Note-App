@@ -97,7 +97,8 @@ class ImportantScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 3.0),
                             child: Text(
                               DateFormat.jm().format(task.date),
                               style: GoogleFonts.k2d(
@@ -205,14 +206,14 @@ class ImportantScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.bookmark_border_rounded,color:lightPurple.withOpacity(0.5), size: 100 ,),
-              Text(state.message,style: GoogleFonts.k2d(
+              Text("Don't have important tasks",style: GoogleFonts.k2d(
                   color:  lightPurple.withOpacity(0.5), fontSize: 22, fontWeight: FontWeight.bold),),
             ],
           ),
         );
       } else {
-        return const Center(
-          child: CircularProgressIndicator(),
+        return  Center(
+          child: CircularProgressIndicator(color:  purple,),
         );
       }
     },

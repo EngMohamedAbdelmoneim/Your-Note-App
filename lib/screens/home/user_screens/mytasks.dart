@@ -94,7 +94,8 @@ class MyTasks extends StatelessWidget {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(2.0),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
                                       child: Text(
                                         DateFormat.jm().format(task.date),
                                         style: GoogleFonts.k2d(
@@ -260,6 +261,8 @@ class MyTasks extends StatelessWidget {
                                           horizontal: 3.0),
                                       child: Text(
                                         task.title,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
                                         style: GoogleFonts.k2d(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.bold,
@@ -281,7 +284,8 @@ class MyTasks extends StatelessWidget {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(2.0),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
                                       child: Text(
                                         DateFormat.jm().format(task.date),
                                         style: GoogleFonts.k2d(
@@ -410,7 +414,14 @@ class MyTasks extends StatelessWidget {
                         size: 180,
                       ),
                       Text(
-                        state.message,
+                        "No Tasks",
+                        style: GoogleFonts.k2d(
+                            color: blue.withOpacity(0.5),
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Add tasks!",
                         style: GoogleFonts.k2d(
                             color: blue.withOpacity(0.5),
                             fontSize: 22,
@@ -420,8 +431,8 @@ class MyTasks extends StatelessWidget {
                   ),
                 );
               } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
+                return  Center(
+                  child: CircularProgressIndicator(color: blue,),
                 );
               }
             },

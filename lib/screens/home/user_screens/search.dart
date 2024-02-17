@@ -148,7 +148,8 @@ class Search extends StatelessWidget {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.all(2.0),
+                                                padding: const EdgeInsets.symmetric(
+                                                    horizontal: 3.0),
                                                 child: Text(
                                                   DateFormat.jm().format(task.date),
                                                   style: GoogleFonts.k2d(
@@ -194,14 +195,14 @@ class Search extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                    Icon(Icons.search,color: orange.withOpacity(0.5), size: 100 ,),
-                    Text(state.message,style: GoogleFonts.k2d(
+                    Text("No Tasks to search",style: GoogleFonts.k2d(
                         color: orange.withOpacity(0.5), fontSize: 22, fontWeight: FontWeight.bold),),
                   ],
                 ),
               );
             }else {
-              return const Center(
-                child: CircularProgressIndicator(),
+              return Center(
+                child: CircularProgressIndicator(color:  orange,),
               );
             }
           },

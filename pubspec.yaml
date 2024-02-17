@@ -48,14 +48,12 @@ dependencies:
   cloud_firestore:
   line_icons: ^2.0.3
   cupertino_icons: ^1.0.2
-  sqflite:
   bloc:
   random_color:
   salomon_bottom_bar:
   gradient_widgets:
   toggle_switch:
   conditional_builder_null_safety:
-  dropdown_button2:
   intl:
   flutter_bloc:
   equatable:
@@ -68,7 +66,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

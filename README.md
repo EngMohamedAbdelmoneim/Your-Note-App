@@ -1,6 +1,6 @@
 # Your Note App
 
-This Your Note App a simple way to organize you task :-
+This Your Note App a simple way to organize your task :-
 
 ![Frame 5](https://github.com/EngMohamedAbdelmoneim/Your-Note-App/assets/158245855/93c4468d-ccbd-4066-b1c4-d3387f9f672f)
 
